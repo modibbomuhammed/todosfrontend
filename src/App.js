@@ -9,9 +9,9 @@ function App() {
   const [state, setState] = useState([]);
   useEffect(() => {
     async function fetchTodos() {
-      const todos = await axios.get('http://localhost:5000/api/todos/');
-      console.log({ todos })
-      setState(todos);
+      const { data } = await axios.get('http://localhost:5000/api/todos/');
+      console.log({ data });
+      setState(data);
     }
     fetchTodos();
   });
