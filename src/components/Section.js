@@ -1,9 +1,19 @@
-import React from 'react'
+import { useState } from 'react'
 
-const Section = () => {
+const Section = ({ addTodo }) => {
+    const [state, setState] = useState('');
+    const handleChange = (e) => {
+        setState(e.target.value);
+    };
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 13) {
+            addTodo(state);
+            setState('');
+        }
+    };
     return (
         <section>
-            <input type="text" id="todoInput" placeholder="Insert your task here..." />
+            <input onChange={handleChange} onKeyDown={handleKeyDown} type="text" id="todoInput" placeholder="Insert your task here..." value={state} />
         </section>
     )
 }
