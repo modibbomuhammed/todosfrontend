@@ -12,7 +12,7 @@ const Section = ({ addTodo }) => {
         }
     };
     return (
-        <section>
+        <section className='form'>
             <input onChange={handleChange} onKeyDown={handleKeyDown} type="text" id="todoInput" placeholder="Insert your task here..." value={state} />
         </section>
     )

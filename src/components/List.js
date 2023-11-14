@@ -1,10 +1,15 @@
 import React from 'react'
 
-const List = ({ todos, updateTodo }) => {
+const List = ({ todos, updateTodo, deleteTodo }) => {
     return (
-        <ul>
+        <ul className='list'>
             {todos.map(({ title, _id, completed }, index) => {
-                return (<li key={index} className={completed ? 'done' : ''} onClick={(e) => updateTodo(_id)}>{title}</li>);
+                return (
+                    <li key={index} className={completed ? 'task done' : 'task'} onClick={(e) => updateTodo(_id)}>
+                        {title}
+                        <span onClick={(e) => deleteTodo(_id, e)}>X</span>
+                    </li>
+                );
             })}
         </ul>
     )
